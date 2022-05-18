@@ -3,7 +3,7 @@ import numpy
 import glob
 
 
-for f in glob.glob("audio_data/normal_*.wav"):
+for f in glob.glob("audio_data/*.wav"):
     a = read(f)
     b = numpy.array(a[1],dtype=float)
 

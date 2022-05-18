@@ -32,7 +32,7 @@ for cnt in range(75):
     audio.terminate()
 
     # save the audio frames as .wav file
-    wavefile = wave.open("audio_data/normal_{0}.wav".format(cnt),'wb')
+    wavefile = wave.open("audio_data/anomaly_{0}.wav".format(cnt),'wb')
     wavefile.setnchannels(chans)
     wavefile.setsampwidth(audio.get_sample_size(form_1))
     wavefile.setframerate(samp_rate)
