@@ -5,6 +5,11 @@ from scipy.io.wavfile import read
 import numpy
 import glob
 import subprocess
+import cv2
+from PIL import Image
+
+
+camera = cv2.VideoCapture(0)
 
 
 def check_for_audio_anomaly():
@@ -57,13 +62,44 @@ def check_for_audio_anomaly():
     out.close()
 
     # Call Edge Impulse anomaly detection model.
-    return subprocess.check_output(['./audio_anomaly_detection/build/app']).decode('UTF-8')
+    return float(subprocess.check_output(['./audio_anomaly_detection/build/app']).decode('UTF-8'))
     
+
+def check_for_intruder():
+    _, image = camera.read()
+    # TODO: TEMP
+    # cv2.imwrite('image_sample.jpg', image)
+
+    image_pil = Image.open('image_sample.jpg')
+    image_data = numpy.asarray(image_pil.resize((96, 96)))
+
+    out = open("image_sample.txt", "w")
+
+    for row in range(96):
+        for col in range(96):
+            red = image_data[row, col, 0] * 256 * 256
+            green = image_data[row, col, 1] * 256
+            blue = image_data[row, col, 2]
+            new_pixel = red + green + blue
+            out.write("{0}\n".format(new_pixel))
+            
+    out.close()
+
+    return subprocess.check_output(['./image_person_detection/build/app']).decode('UTF-8')
+
 
 def main():
     while(True):
         anomaly_score = check_for_audio_anomaly()
-        print(anomaly_score)
+        print("Anomaly score: {0}".format(anomaly_score))
+
+        if (anomaly_score >= 0.0):
+            print("Suspicious sound detected...")
+            intruder = check_for_intruder()
+            if (intruder == "PERSON DETECTED"):
+                print("YES")
+
+    return
 
 
 if __name__ == "__main__":
