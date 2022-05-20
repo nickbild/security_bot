@@ -16,7 +16,7 @@ static float features[16666] = {};
 
 int main(int argc, char **argv) {
     string line;
-    std::string inFileName = "data.txt";
+    std::string inFileName = "audio_sample.txt";
     std::ifstream inFile;
     inFile.open(inFileName.c_str());
 
@@ -56,11 +56,11 @@ int main(int argc, char **argv) {
     res = run_classifier(&signal, &result, false);
 
     // Print return code and how long it took to perform inference
-    printf("run_classifier returned: %d\r\n", res);
-    printf("Timing: DSP %d ms, inference %d ms, anomaly %d ms\r\n", 
+    // printf("run_classifier returned: %d\r\n", res);
+    /*printf("Timing: DSP %d ms, inference %d ms, anomaly %d ms\r\n", 
             result.timing.dsp, 
             result.timing.classification, 
-            result.timing.anomaly);
+            result.timing.anomaly);*/
 
     // Print the prediction results (object detection)
 #if EI_CLASSIFIER_OBJECT_DETECTION == 1
@@ -81,7 +81,7 @@ int main(int argc, char **argv) {
 
     // Print the prediction results (classification)
 #else
-    printf("Predictions:\r\n");
+    // printf("Predictions:\r\n");
     for (uint16_t i = 0; i < EI_CLASSIFIER_LABEL_COUNT; i++) {
         printf("  %s: ", ei_classifier_inferencing_categories[i]);
         printf("%.5f\r\n", result.classification[i].value);
@@ -90,7 +90,7 @@ int main(int argc, char **argv) {
 
     // Print anomaly result (if it exists)
 #if EI_CLASSIFIER_HAS_ANOMALY == 1
-    printf("Anomaly prediction: %.3f\r\n", result.anomaly);
+    printf("%.3f\r\n", result.anomaly);
 #endif
 
     return 0;
