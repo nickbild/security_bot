@@ -84,13 +84,13 @@ int main(int argc, char **argv) {
     // printf("Predictions:\r\n");
     for (uint16_t i = 0; i < EI_CLASSIFIER_LABEL_COUNT; i++) {
         printf("  %s: ", ei_classifier_inferencing_categories[i]);
-        printf("%.5f\r\n", result.classification[i].value);
+        printf("%.5f", result.classification[i].value);
     }
 #endif
 
     // Print anomaly result (if it exists)
 #if EI_CLASSIFIER_HAS_ANOMALY == 1
-    printf("%.3f\r\n", result.anomaly);
+    printf("%.3f", result.anomaly);
 #endif
 
     return 0;
