@@ -10,6 +10,7 @@ from PIL import Image
 
 
 camera = cv2.VideoCapture(0)
+first_patrol = True
 
 
 def check_for_audio_anomaly():
@@ -67,8 +68,7 @@ def check_for_audio_anomaly():
 
 def check_for_intruder():
     _, image = camera.read()
-    # TODO: TEMP
-    # cv2.imwrite('image_sample.jpg', image)
+    cv2.imwrite('image_sample.jpg', image)
 
     image_pil = Image.open('image_sample.jpg')
     image_data = numpy.asarray(image_pil.resize((96, 96)))
@@ -88,16 +88,38 @@ def check_for_intruder():
     return subprocess.check_output(['./image_person_detection/build/app']).decode('UTF-8')
 
 
+def go_on_patrol():
+    global first_patrol
+
+    if first_patrol:
+        first_patrol = False
+        subprocess.check_output(['./undock.sh'])
+        subprocess.check_output(['./turn_90_right.sh'])
+    
+    while(True):
+        # Move forward.
+        subprocess.check_output(['./forward.sh']).decode('UTF-8')
+        
+        # Turn 90 degrees, check for a person.  Repeat until 360 completed.
+        for i in range(4):
+            subprocess.check_output(['./turn_90_right.sh'])
+            intruder = check_for_intruder()
+            # Handle a detected person.
+            if (intruder == "PERSON DETECTED"):
+                print("YES")
+                break
+    
+    return
+
+
 def main():
     while(True):
         anomaly_score = check_for_audio_anomaly()
         print("Anomaly score: {0}".format(anomaly_score))
 
-        if (anomaly_score >= 0.0):
+        if (anomaly_score >= 0.8):
             print("Suspicious sound detected...")
-            intruder = check_for_intruder()
-            if (intruder == "PERSON DETECTED"):
-                print("YES")
+            go_on_patrol()
 
     return
 
