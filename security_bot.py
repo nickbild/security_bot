@@ -113,8 +113,10 @@ def go_on_patrol():
 
 
 def alarm():
+    # Play siren sound, flash lights, and send notification.
     subprocess.call(['aplay alarm.wav &'], shell=True)
     subprocess.check_output(['./alarm_light.sh'])
+    subprocess.check_output(['python3', 'send_email.py'])
 
     return
 
