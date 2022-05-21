@@ -106,9 +106,16 @@ def go_on_patrol():
             intruder = check_for_intruder()
             # Handle a detected person.
             if (intruder == "PERSON DETECTED"):
-                print("YES")
+                alarm()
                 break
     
+    return
+
+
+def alarm():
+    subprocess.call(['aplay alarm.wav &'], shell=True)
+    subprocess.check_output(['./alarm_light.sh'])
+
     return
 
 
