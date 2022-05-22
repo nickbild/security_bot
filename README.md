@@ -4,8 +4,6 @@ Shield Bot is an autonomous security robot that listens for suspicious sounds, t
 
 Images are processed by a FOMO object detection model that has been trained to recognize people.  If a person is detected, the robot plays a loud police siren sound and flashes a red and blue light to scare the intruder away.  A notification about the incident is also sent to the robot's owner.
 
-ONLY ONE CAM
-
 ![](https://raw.githubusercontent.com/nickbild/security_bot/main/image_data/angle_sm.jpg?token=GHSAT0AAAAAABT2SCOA46Q6TWFKT3CBTQ74YUKTYXA)
 
 ## Hardware
@@ -49,3 +47,6 @@ I deployed both of the models as self-contained C++ libraries using Edge Impulse
 
 ## Conclusion
 
+By building a security camera on top of a robot, a single camera can cover a large area that would typically require many cameras for coverage.  It can also roam around and cover areas that would be blind spots for fixed-position cameras.
+
+The machine learning models were very simple to build and train using Edge Impulse's slick interface.  They performed very well in my tests, consistently detecting audio anomalies and people.  In the future, I would like to enhance Shield Bot's navigation abilities.  While on patrol, the robot drives until it encounters an object, then turns in a different direction and continues on.  I would like to involve computer vision in this process so that the robot can intelligently cover a space in the most efficient manner.
