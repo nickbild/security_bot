@@ -22,7 +22,7 @@ To train the audio anomaly detection pipeline, I collected 75 one second audio s
 
 Similarly, I captured 190 images with the webcam, some of which contained people, and others that did not.  I uploaded these to Edge Impulse, and used the labelling tool to draw bounding boxes around people.
 
-![](https://raw.githubusercontent.com/nickbild/security_bot/main/image_data/img_149.jpg?token=GHSAT0AAAAAABT2SCOAA3F2MEJ7XIGIGQ44YUKUHDA)
+![](https://raw.githubusercontent.com/nickbild/security_bot/main/image_data/img_149.jpg?token=GHSAT0AAAAAABT2SCOBW2LCN74LXMNN4BCAYUKUKAQ)
 
 ## Audio Anomaly Detection
 
