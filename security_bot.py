@@ -90,6 +90,7 @@ def check_for_intruder():
 
 def go_on_patrol():
     global first_patrol
+    intruder = None
 
     if first_patrol:
         first_patrol = False
@@ -108,7 +109,10 @@ def go_on_patrol():
             if (intruder == "PERSON DETECTED"):
                 alarm()
                 break
-    
+
+        if (intruder == "PERSON DETECTED"):
+            break
+
     return
 
 
