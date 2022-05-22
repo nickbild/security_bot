@@ -4,7 +4,7 @@ Shield Bot is an autonomous security robot that listens for suspicious sounds, t
 
 Images are processed by a FOMO object detection model that has been trained to recognize people.  If a person is detected, the robot plays a loud police siren sound and flashes a red and blue light to scare the intruder away.  A notification about the incident is also sent to the robot's owner.
 
-![](https://raw.githubusercontent.com/nickbild/security_bot/main/image_data/angle_sm.jpg?token=GHSAT0AAAAAABT2SCOAUYQOKR3BXYOXDQW2YUKUD7Q)
+![](https://raw.githubusercontent.com/nickbild/security_bot/main/media/angle_sm.jpg?token=GHSAT0AAAAAABT2SCOAHKVMRB26A7PPBLJEYUKUEVQ)
 
 ## Hardware
 
