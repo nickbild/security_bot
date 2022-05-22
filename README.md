@@ -43,7 +43,7 @@ This data analysis pipeline is also [publicly available](https://studio.edgeimpu
 
 ## Deploying the Models
 
-I deployed both of the models as self-contained C++ libraries using Edge Impulse's deployment tool.  With no external dependencies, these are super easy to deploy on any Linux-based platform, such as the Raspberry Pi.  This allowed to call both machine learning pipelines from the script containing the robot's operating logic without the need for Internet connectivity, and without the privacy concerns that would come with sending audio and video from inside my home to the cloud.
+I deployed both of the models as self-contained C++ libraries using Edge Impulse's deployment tool.  With no external dependencies, these are super easy to deploy on any Linux-based platform, such as the Raspberry Pi.  This allowed me to call both machine learning pipelines from the script containing the robot's operating logic without the need for Internet connectivity, and without the privacy concerns that would come with sending audio and video from inside my home to the cloud.
 
 ## Conclusion
 
