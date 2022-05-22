@@ -12,7 +12,7 @@ The base of the robot is an iRobot Create 3, which is basically a Roomba robot v
 
 Raspberry Pi 4s and NVIDIA Jetsons are officially supported platforms to control the iRobot, and Shield Bot is controlled with a Raspberry Pi 4.  This computer provides the processing power to run the machine learning algorithms, run the application logic, and handle interactions with the iRobot.
 
-A USB webcam was chosen for capturing images, and it also contains a microphone to sample environmental sounds.  A speaker was connected to the Raspberry Pi to play the alarm sound.  The LED ring built in to the iRobot was used for the flashing lights of the alarm.
+A USB webcam was chosen for capturing images, and it also contains a microphone to sample environmental sounds.  A speaker was connected to the Raspberry Pi to play the alarm sound.  The LED ring built into the iRobot was used for the flashing lights of the alarm.
 
 ![](https://raw.githubusercontent.com/nickbild/security_bot/main/media/top_sm.jpg?token=GHSAT0AAAAAABT2SCOBSPKK5TXIOMSOALEIYUKUFLQ)
 
