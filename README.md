@@ -2,7 +2,7 @@
 
 Shield Bot is an autonomous security robot that listens for suspicious sounds, then goes on patrol to look for intruders.  To conserve energy for when it is needed, the robot sits on its charging dock while it continually samples audio clips with its microphone.  These audio clips are fed into a K-means clustering algorithm that has been trained to recognize normal sounds in its environment (e.g. A/C turning on and off, ice maker, etc.).  When an anomalous sound is detected, Shield Bot backs away from the charging dock, then goes on patrol by roaming about and periodically doing a 360 degree turn, capturing images at 90 degree increments.
 
-Images are processed by a FOMO object detection model that has been trained to recognize people.  If a person is detected, the robot plays a loud police siren sound and flashes a red and blue light to scare the intruder away.  A notification about the incident is also sent to the robot's owner.
+Images are processed by a [FOMO object detection model](https://www.edgeimpulse.com/blog/announcing-fomo-faster-objects-more-objects) that has been trained to recognize people.  If a person is detected, the robot plays a loud police siren sound and flashes a red and blue light to scare the intruder away.  A notification about the incident is also sent to the robot's owner.
 
 ![](https://raw.githubusercontent.com/nickbild/security_bot/main/media/angle_sm.jpg?token=GHSAT0AAAAAABT2SCOACMX6S6J7BMBQZGUIYUKUK5A)
 
