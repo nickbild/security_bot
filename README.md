@@ -4,6 +4,8 @@ Shield Bot is an autonomous security robot that listens for suspicious sounds, t
 
 Images are processed by a FOMO object detection model that has been trained to recognize people.  If a person is detected, the robot plays a loud police siren sound and flashes a red and blue light to scare the intruder away.  A notification about the incident is also sent to the robot's owner.
 
+![](https://raw.githubusercontent.com/nickbild/security_bot/main/image_data/angle_sm.jpg?token=GHSAT0AAAAAABT2SCOAOUGVC5RG5ZQJPEO2YUKS6XQ)
+
 ## Hardware
 
 The base of the robot is an iRobot Create 3, which is basically a Roomba robot vaccuum without the cleaning components.  It provides a pair of motorized wheels with encoders, several infrared and bump sensors, an accelerometer, a gyroscope, and more to act as the base for any number of robotics projects.  These sensors and actuators are accessible via Robot Operating System 2.
@@ -11,6 +13,8 @@ The base of the robot is an iRobot Create 3, which is basically a Roomba robot v
 Raspberry Pi 4s and NVIDIA Jetsons are officially supported platforms to control the iRobot, and Shield Bot is controlled with a Raspberry Pi 4.  This computer provides the processing power to run the machine learning algorithms, run the application logic, and interact with the iRobot.
 
 A USB webcam was chosen for capturing images, and it also contains a microphone to sample environmental sounds.  A speaker was connected to the Raspberry Pi to play the alarm sound.  The LED ring built in to the iRobot was used for the flashing lights of the alarm.
+
+![](https://raw.githubusercontent.com/nickbild/security_bot/main/image_data/top_sm.jpg?token=GHSAT0AAAAAABT2SCOAOUGVC5RG5ZQJPEO2YUKS6XQ)
 
 ## Data Collection
 
@@ -35,12 +39,11 @@ I created a second impulse to analyze the images captured by the webcam, and det
 
 ![](https://raw.githubusercontent.com/nickbild/security_bot/main/image_data/ei_image.png?token=GHSAT0AAAAAABT2SCOAOUGVC5RG5ZQJPEO2YUKS6XQ)
 
-
 This data analysis pipeline is also [publicly available](https://studio.edgeimpulse.com/public/106892/latest).
 
 ## Deploying the Models
 
-I deployed both of the models as self-contained C++ libraries using Edge Impulse's deployment tool.
+I deployed both of the models as self-contained C++ libraries using Edge Impulse's deployment tool.  With no external dependencies, these are super easy to deploy on any Linux-based platform, such as the Raspberry Pi.  This allowed to call both machine learning pipelines from the script containing the robot's operating logic without the need for Internet connectivity, and without the privacy concerns that would come with sending audio and video from inside my home to the cloud.
 
 ## Result
 
