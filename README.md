@@ -22,13 +22,13 @@ To train the audio anomaly detection pipeline, I collected 75 one second audio s
 
 Similarly, I captured 190 images with the webcam, some of which contained people, and others that did not.  I uploaded these to Edge Impulse, and used the labelling tool to draw bounding boxes around people.
 
-![](https://raw.githubusercontent.com/nickbild/security_bot/main/image_data/img_149.jpg?token=GHSAT0AAAAAABT2SCOBDD4HEKKQKBEUJ7PGYUKUCUQ)
+![](https://raw.githubusercontent.com/nickbild/security_bot/main/image_data/img_149.jpg?token=GHSAT0AAAAAABT2SCOBSPKK5TXIOMSOALEIYUKUFLQ)
 
 ## Audio Anomaly Detection
 
 I built an impulse that consumes the CSVs of audio data that I previously created, and feeds them into a K-means clustering algorithm.  After training this model to recognize normal sounds around my house, it was then capable of detecting anything that is out of the ordinary.  There was no need to give it examples of abnormal sounds, or to be restricted in the types of anomalous sounds it can detect.  It will recognize anything unusual.
 
-![](https://raw.githubusercontent.com/nickbild/security_bot/main/media/ei_audio.png?token=GHSAT0AAAAAABT2SCOBDD4HEKKQKBEUJ7PGYUKUCUQ)
+![](https://raw.githubusercontent.com/nickbild/security_bot/main/media/ei_audio.png?token=GHSAT0AAAAAABT2SCOBSPKK5TXIOMSOALEIYUKUFLQ)
 
 
 I have made this Edge Impulse project public, and it is [available here](https://studio.edgeimpulse.com/public/106503/latest).
