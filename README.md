@@ -22,13 +22,13 @@ To train the audio anomaly detection pipeline, I collected 75 one second audio s
 
 Similarly, I captured 190 images with the webcam, some of which contained people, and others that did not.  I uploaded these to Edge Impulse, and used the labelling tool to draw bounding boxes around people.
 
-![](https://raw.githubusercontent.com/nickbild/security_bot/main/image_data/img_149.jpg?token=GHSAT0AAAAAABT2SCOBSPKK5TXIOMSOALEIYUKUFLQ)
+![](https://raw.githubusercontent.com/nickbild/security_bot/main/image_data/img_149.jpg?token=GHSAT0AAAAAABT2SCOAA3F2MEJ7XIGIGQ44YUKUHDA)
 
 ## Audio Anomaly Detection
 
 I built an impulse that consumes the CSVs of audio data that I previously created, and feeds them into a K-means clustering algorithm.  After training this model to recognize normal sounds around my house, it was then capable of detecting anything that is out of the ordinary.  There was no need to give it examples of abnormal sounds, or to be restricted in the types of anomalous sounds it can detect.  It will recognize anything unusual.
 
-![](https://raw.githubusercontent.com/nickbild/security_bot/main/media/ei_audio.png?token=GHSAT0AAAAAABT2SCOBSPKK5TXIOMSOALEIYUKUFLQ)
+![](https://raw.githubusercontent.com/nickbild/security_bot/main/media/ei_audio.png?token=GHSAT0AAAAAABT2SCOAA3F2MEJ7XIGIGQ44YUKUHDA)
 
 
 I have made this Edge Impulse project public, and it is [available here](https://studio.edgeimpulse.com/public/106503/latest).
@@ -37,7 +37,7 @@ I have made this Edge Impulse project public, and it is [available here](https:/
 
 I created a second impulse to analyze the images captured by the webcam, and determine if a person is present in each image.  This pipeline preprocesses the images and extracts the most important features before feeding them into a FOMO object detection model.  FOMO is optimized for great performance on resource-constrained platforms, so it performs exceptionally well on a Raspberry Pi 4.
 
-![](https://raw.githubusercontent.com/nickbild/security_bot/main/media/ei_image.png?token=GHSAT0AAAAAABT2SCOBDD4HEKKQKBEUJ7PGYUKUCUQ)
+![](https://raw.githubusercontent.com/nickbild/security_bot/main/media/ei_image.png?token=GHSAT0AAAAAABT2SCOAA3F2MEJ7XIGIGQ44YUKUHDA)
 
 This data analysis pipeline is also [publicly available](https://studio.edgeimpulse.com/public/106892/latest).
 
